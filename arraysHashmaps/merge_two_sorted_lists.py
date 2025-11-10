@@ -4,11 +4,11 @@ class ListNode:
         self.next = next
 
 
-def mergeTwoLists(l1, l2):
+def merge_two_sorted_lists(l1, l2):
     dummy = ListNode()
     tail = dummy
     while l1 and l2:
-        if l1.val <= l2.val:
+        if l1.val < l2.val:
             tail.next = l1
             l1 = l1.next
         else:
@@ -50,6 +50,6 @@ tests = [
 for a, b, expect in tests:
     l1 = from_list(a)
     l2 = from_list(b)
-    merged = mergeTwoLists(l1, l2)
+    merged = merge_two_sorted_lists(l1, l2)
     got = to_list(merged)
     print(f"{a} + {b} -> {got}  {'OK' if got==expect else 'FAIL, expect '+str(expect)}")
